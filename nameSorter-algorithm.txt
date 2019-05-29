@@ -1,0 +1,31 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: 
+
+2. Requirements
+INPUT: 
+up to 5 names in a file called myFriends.txt
+
+PROCESSING: 
+ Prompt the user to enter the filename via the console keyboard.
+ Skip any blank lines that may be in the input file.
+ Skip any exact duplicates that may be in the input file.
+ Sort names alphabetically, and output up to 5 names to the screen
+ Both scorting and checking for duplicates must be case independent
+
+
+OUTPUT: decoded text to the console
+
+DATA: 
+
+
+3. Instructions
+
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: Basic sorting   and  Input values if any: file contains: Sasha, Carl, beth, Alex, Pat
+Expected output: Alex, beth, Carl, Pat, Sasha

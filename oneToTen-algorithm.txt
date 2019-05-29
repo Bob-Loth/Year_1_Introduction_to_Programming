@@ -1,0 +1,63 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: to make the user guess a number between 1 and 10, and see if the guess matches the randomly generated number.
+
+2. Requirements
+INPUT:
+usersGuess : a guess of an integer from 1 to 10
+
+
+PROCESSING:
+create a variable usersGuess to store keyboard input of an integer between 1 and 10
+create a randomly generated variable of an integer between 1 and 10
+if usersGuess == randomNumber, then show successprompt
+elseif (usersGuess < 1 || usersGuess > 10 ) show error message and output valid values prompt
+else show failprompt
+
+OUTPUT:
+random number
+guessPrompt
+failPrompt
+successPrompt
+
+DATA:
+randomNumber
+usersGuess
+
+3. Instructions
+10 create a variable usersGuess to store keyboard input of an integer between 1 and 10
+20 create a randomly generated variable of an integer between 1 and 10
+25 ask user to input an integer between 1 and 10, store as usersGuess
+30 if usersGuess == randomNumber , go to instruction 60
+40 elseif (usersGuess < 1 || usersGuess > 10 ) show error message and output valid values prompt, then return to instruction 25
+50 else show failprompt, return to instruction 25
+60 show successprompt
+999 DONE
+
+4. Test Cases
+Test Case#1: What is being tested: invalid input    and  Input values if any: usersGuess = 90
+
+10 usersGuess =
+20 randomNumber = 7, or whichever
+25 I'm thinking of a number between 1 and 10. ;  usersGuess = 90
+30 false
+40 true ; I really want a number between 1 and 10.
+25 I'm thinking of a number between 1 and 10. // continued until valid input is given.
+
+Test Case#2: What is being tested:  correct guess  and  Input values if any: usersGuess = 5 = randomNumber
+10 usersGuess =
+20 randomNumber = 5
+25 I'm thinking of a number between 1 and 10. ;  usersGuess = 5
+30 true
+60 You guessed it!
+
+Test Case#3: What is being tested: incorrect guess    and  Input values if any: usersGuess = 2 != randomNumber
+10 usersGuess =
+20 randomNumber = 7, or whichever, not 2
+25 I'm thinking of a number between 1 and 10. ; usersGuess = 2
+30 false
+40 false
+50 Try again...
+25 I'm thinking of a number between 1 and 10. ; // repeated until correct guess
+

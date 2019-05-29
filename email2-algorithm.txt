@@ -1,0 +1,212 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: receive input and output file names as part of a larger program
+2. Requirements
+INPUT: 
+prompt for both the input and output file names, allowing blank for the "default" name. 
+PROCESSING:
+set default conditions for input file and enterKey flag
+output prompt and receive input
+determine whether a different filename was entered, choose output file based on that
+output a label for the input and output file names
+wait an indefinite amount of time for the user to press enter
+
+OUTPUT: 
+output to the console the input and output file names selected, converting any blanks to their corresponding default names.
+There is NO file input or output in this version.
+DATA:
+iFileName is the input file name
+dFileName is the default file name
+oFileName is the output file name
+enterKey is true if user pressed ENTER key as input for filename
+fileValid() is a subprogram that tests whether or not a given string is less than 5 characters, or does not have ".txt" as its ending characters.
+If either of those statements are true, the string is deemed invalid, and the subprogram returns false.
+
+
+3. Instructions
+10 set dFileName = fileContainingEmails.txt
+20 set Enterkey = false
+30 Enter input filename [default: copyPasteMyEmails.txt]:
+40 receive input for iFileName through the console
+50 if length of iFileName = 0, then enterKey = true
+55 evaluate iFileName using fileValid()
+60 if enterkey is true, or fileValid returns false, then iFileName = dFileName, and dFileName = "copyPasteMyEmails.txt"
+70 else if enterkey is false, then dFileName = iFileName
+75 check if iFilename exists in the working folder, close if there are any errors
+80 Enter output filename [default: copyPasteMyEmails.txt]:
+90 input of oFileName
+100 set enterKey = false
+110 if length of oFileName = 0, then enterkey=true
+120 if enterKey is true, or fileValid returns false, then oFileName = dFileName
+130 output label for the input file name, and iFileName
+140 output label for the output file name, and oFileName
+150 output a prompt to press ENTER key to continue
+160 input a character
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: hitting enter twice Input values if any: input filename [default: fileContainingEmails.txt]: output filename [default: copyPasteMyEmails.txt]: 
+Expected output: 
+
+Enter input filename [default: fileContainingEmails.txt]:
+Using default filename.
+Enter output filename [default: copyPasteMyEmails.txt]:
+Using default filename.
+Input file: fileContainingEmails.txt
+Output file: copyPasteMyEmails.txt
+
+10 dFileName = fileContainingEmails.txt
+20 Enterkey = false
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 enter
+50 true, enterKey = true
+55 evaluate iFileName using fileValid()
+60 true, iFileName = fileContainingEmails.txt, and dFileName = "copyPasteMyEmails.txt"
+70 false
+80 Enter output filename [default: copyPasteMyEmails.txt]:
+90 enter
+100 enterKey = false
+110 true, enterkey=true
+120 true, oFileName = "copyPasteMyEmails.txt"
+130 Input file: fileContainingEmails.txt
+140 Output file: copyPasteMyEmails.txt
+150 Press [ENTER] to continue...
+160 input a character
+
+Test Case#2: What is being tested: hitting x.txt, then hitting enter  Input values if any: Input file: x.txt Output file: x.txt
+Expected output:
+
+Enter input filename [default: fileContainingEmails.txt]: x.txt
+Enter output filename [default: x.txt]:
+Using default filename.
+Input file: x.txt
+Output file: x.txt
+
+10 dFileName = fileContainingEmails.txt
+20 Enterkey = false
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 x.txt
+50 false
+55 true
+60 false
+70 dFileName = x.txt
+80 Enter output filename [default: x.txt]:
+90 enter
+100 enterKey = false
+110 true, then enterkey=true
+120 true, oFileName = x.txt
+130 Input file: x.txt
+140 Output file: x.txt
+150 Press [ENTER] to continue...
+160 input a character
+
+Test Case#3: What is being tested: hitting enter, then hitting y.txt Input values if any: Input file: fileContainingEmails.txt Output file: y.txt
+Expected output:
+
+Enter input filename [default: fileContainingEmails.txt]:
+Using default filename.
+Enter output filename [default: copyPasteMyEmails.txt]: y.txt
+Input file: fileContainingEmails.txt
+Output file: y.txt
+
+10 dFileName = fileContainingEmails.txt
+20 Enterkey = false
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 enter
+50 true, then enterKey = true
+55 evaluate iFileName using fileValid()
+60 true, iFileName = fileContainingEmails.txt, and dFileName = "copyPasteMyEmails.txt"
+70 false
+80 Enter output filename [default: copyPasteMyEmails.txt]:
+90 oFileName = y.txt
+100 enterKey = false
+110 false
+120 false
+130 Input file: fileContainingEmails.txt
+140 Output file: y.txt
+150 Press [ENTER] to continue...
+160 input a character
+
+Test Case#4: What is being tested: hitting x.txt, then hitting y.txt Input values if any: Input file: x.txt Output file: y.txt
+Expected output:
+
+Enter input filename [default: fileContainingEmails.txt]: x.txt
+Enter output filename [default: x.txt]: y.txt
+Input file: x.txt
+Output file: y.txt
+
+10 dFileName = fileContainingEmails.txt
+20 Enterkey = false
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 x.txt
+50 false
+55 true
+60 false
+70 true, dFileName = x.txt
+80 Enter output filename [default: x.txt]:
+90 y.txt
+100 enterKey = false
+110 false
+120 false
+130 Input file: x.txt
+140 Output file: y.txt
+150 Press [ENTER] to continue...
+160 input a character
+
+test Case#5: What is being tested: hitting something with less than 5 characters       Input values if any: Input file: .txt Output file: [SPACE]
+Expected output:
+
+Enter input filename [default: fileContainingEmails.txt]: .txt
+Incorrect filename entered, using default filename.
+Enter output filename [default: copyPasteMyEmails.txt]:
+Incorrect filename entered, using default filename.
+Input file: fileContainingEmails.txt
+Output file: copyPasteMyEmails.txt
+
+10 dFileName = fileContainingEmails.txt
+20 Enterkey = false
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 .txt
+50 false
+55 false
+60 true, iFileName = fileContainingEmails.txt, and dFileName = "copyPasteMyEmails.txt"
+70 skipped
+80 Enter output filename [default: copyPasteMyEmails.txt]:
+90 [SPACE]
+100 enterKey = false
+110 false
+120 fileValid returned false, then oFileName = copyPasteMyEmails.txt
+130 Input file: fileContainingEmails.txt
+140 Output file: copyPasteMyEmails.txt
+150 Press [ENTER] to continue...
+160 input a character
+
+test Case#6: What is being tested: hitting something without .txt appended to the end  Input values if any: Input file: emailfile Output file: outputfile
+Expected output:
+
+Enter input filename [default: fileContainingEmails.txt]: emailfile
+Incorrect filename entered, using default filename.
+Enter output filename [default: copyPasteMyEmails.txt]: outputfile
+Incorrect filename entered, using default filename.
+Input file: fileContainingEmails.txt
+Output file: copyPasteMyEmails.txt
+
+10 dFileName = fileContainingEmails.txt
+20 Enterkey = false
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 emailfile
+50 true, enterKey = true
+55 fileValid() returned false
+60 true, then iFileName = fileContainingEmails.txt, and dFileName = "copyPasteMyEmails.txt"
+70 skipped
+80 Enter output filename [default: copyPasteMyEmails.txt]:
+90 outputfile
+100 enterKey = false
+110 false
+120 true then oFileName = copyPasteMyEmails.txt
+130 Input file: fileContainingEmails.txt
+140 Output file: copyPasteMyEmails.txt
+150 Press [ENTER] to continue...
+160 input a character

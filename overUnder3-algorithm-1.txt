@@ -1,0 +1,66 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: create overUnder3-algorithm.txt to keep a list of every user guess and output a message if the user guesses a
+number already guessed. use an array-based list to check.
+
+2. Requirements
+INPUT: userGuess, integer between 1 and 100 to guess a random number
+
+
+PROCESSING:
+create a random number between 1 and 100
+create an array-based list
+get user input to guess a number, if that number is already on the array-based list then tell them
+save that number to the array-based list if is not already on the list
+if the guess is lower than the rnadom number then output that it is too low, and return to get user input
+if the guess is higher than the rnadom number then output that it is too high, and return to get user input
+if the guess is correct, tell them it is correct and end program
+
+
+OUTPUT: tooHighPrompt
+        tooLowPrompt
+        correctGuessPrompt
+
+DATA: 
+array- guess
+string- tooHighPrompt when user's guess is higher than correct guess
+string- tooLowPrompt when user's guess is lower than correct guess
+string- correctGuessPrompt when user guesses correctly
+int- i for index
+
+
+3. Instructions
+10 create a random number between 1 and 100
+20 create an array-based list
+30 get user input to guess a number, if that number is already on the array-based list then tell them, and ask for input again
+40 save that number to the array-based list if is not already on the list
+50 if the guess is lower than the random number then output that it is too low, and return to 30
+60 if the guess is higher than the random number then output that it is too high, and return to 30
+70 if the guess is correct, tell them it is correct and end program
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: too high, then duplicate answer1, then too low, then duplicate answer1, then duplicate answer2, then correct
+Input values if any: correctGuess = 40, userGuess = 60, 60, 20, 60, 20, 40
+
+10 correctGuess = 40
+20 guess[100] = {empty for now}
+30 I'm thinking of a number between 1 and 100. userGuess = 60, is not on list
+40 guess[0] = 60
+50 false
+60 true - Too high, guess again
+30 I'm thinking of a number between 1 and 100. userGuess = 60, is on list userGuess[0]=60 - Guess again, you already guessed 60
+30 I'm thinking of a number between 1 and 100. userGuess = 20, is not on list 
+40 guess[1] = 20
+50 true - too low, guess again
+30 I'm thinking of a number between 1 and 100. userGuess = 60 is on list userGuess[0] = 60 - Guess again, you already guessed 60
+30 I'm thinking of a number between 1 and 100. userGuess = 20 is on list userGuess[1] = 20 - Guess again, you already guessed 20
+30 I'm thinking of a number between 1 and 100. userGuess = 40 is not on list 
+40 guess[2] = 40
+50 false
+60 false
+70 true, "You did it!"
+END

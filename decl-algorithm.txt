@@ -1,0 +1,74 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective : to receive 4 inputs about a person through keyboard input, and output sentences about those inputs in a sentence using labels.
+
+2. Requirements
+INPUT: 
+luckyNumber (integer)
+favoriteMovie (string)
+age (double)
+firstLetterName (character)
+
+
+PROCESSING:
+create data variables for each datum
+
+prompt user for input, store each result 
+
+output variables as a sentence using labels
+
+
+
+
+
+OUTPUT:
+luckyNumber (integer) and label
+favoriteMovie (string) and label
+age (double) and label
+firstLetterName (character) and label
+
+
+DATA:
+luckyNumber (integer)
+favoriteMovie (string)
+age (double)
+firstLetterName (character)
+
+
+3. Instructions
+10 create data variable for luckyNumber
+20 create data variable for favoriteMovie
+30 create data variable for age
+40 create data variable for firstLetterName
+50 prompt user for input, store as luckyNumber
+60 prompt user for input, store as favoriteMovie
+70 prompt user for input, store as age
+80 prompt user for input, store as firstLetterName
+90 output luckyNumber as a sentence using labels
+100 output favoriteMovie as a sentence using labels
+110 output age as a sentence using labels
+120 output firstLetterName as a sentence using labels
+999 DONE
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: basic functionality    and  Input values if any: luckyNumber = 8, favoriteMovie = It age = 55 firstLetterName = T
+
+10 luckyNumber =
+20 favoriteMovie =
+30 age =
+40 firstLetterName =
+50 What is your lucky number? (pick a positive whole number): luckyNumber = [8]
+60 What is your favorite movie? favoriteMovie = [It]
+70 What is your age in whole years? (0-122): [55]
+80 What is the first letter of your first name?: firstLetterName = [T]
+90 Your lucky number is 8.
+100 Your favorite movie is It.
+110 You are 55 years old.
+120 The first letter of your first name is T.
+999 Done
+
+
+

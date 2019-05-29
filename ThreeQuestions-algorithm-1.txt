@@ -1,0 +1,65 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective
+use a subprogram that asks the questions returns a boolean 
+(true = user answered question correctly or false = user answered question incorrectly) value
+
+2. Requirements
+INPUT:
+answer1
+answer2
+answer3
+
+PROCESSING:
+store answer 1
+evaluate answer 1 to be true or false
+add score if answer 1 is true
+
+store answer 2
+evaluate answer 2 to be true or false
+add score if answer 2 is true
+
+store answer 3
+evaluate answer 3 to be true or false
+add score if answer 3 is true
+
+
+OUTPUT:
+label and answer 1
+correct or incorrect 1
+label and answer 2
+correct or incorrect 2
+label and answer 3
+correct or incorrect 3
+
+DATA:
+answer1 //answer to question 1
+answer2 //answer to question 2
+answer3 //answer to question 3
+bool1 //whether or not answer1 was correct
+bool2 //whether or not answer2 was correct
+bool3 //whether or not answer3 was correct
+score //the total number of correctly answered questions
+
+3. Instructions
+10 declare score = 0
+11 declare bool1 false
+12 declare bool2 false
+13 declare bool3 false
+14 declare answer1
+15 declare answer2
+16 declare answer3
+20 ask user question 1
+30 store answer as answer1
+40 if answer is correct, change bool1 to true and add 1 to score
+50 ask user question 2
+60 store answer as answer2
+70 if answer is correct, change bool1 to true and add 1 to score
+80 ask user question 3
+90 store answer as answer3
+100 if answer is correct, change bool1 to true and add 1 to score
+110 display the questions, and their respective answers, and your score out of the maximum possible score.
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:

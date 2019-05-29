@@ -1,0 +1,52 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective : Create a simple 4-function calculator.
+
+2. Requirements
+INPUT:
+first number
+operator (+ - * /)
+second number
+
+
+PROCESSING:
+declare number1
+declare number2
+
+assign numbers to each operating case
+perform that operation and only that operation when the case is selected, using number1 and number2
+
+show output describing the calculation that took place, and its result
+
+
+OUTPUT:
+user introduction
+result of the calculation, with display of operation
+
+DATA:
+number1 // first number entered
+number2 // second number entered
+operator // number referencing a case to be carried out
+result // result of the calculation
+
+3. Instructions
+10 declare number1
+20 declare number2
+30 output user introduction
+40 prompt user to input number1
+50 store as number1
+60 prompt user to input number2
+70 store as number2
+80 prompt user to input 1, 2, 3, or 4
+90 store as operator
+100 if operator = 1, add number1 and number2      1 + 2
+110 if operator = 2, subtract number2 from number1 1 - 2
+120 if operator = 3, multiply number1 and number2 1 * 2
+130 if operator = 4, if number2 is zero, output error message and return to instruction 40
+135 else divide number1 by number2 1 / 2
+140 if operator is not 1, 2, 3, OR 4, output error message and return to instruction 80
+150 output a formatted calculation, and output the result.
+
+4. Test Cases
+Test Case#1: What is being tested:     and  Input values if any:

@@ -1,0 +1,51 @@
+1a. Explain in words what are the 3 control structures and how each of the 3 control structures
+works in general.
+
+1. Sequence - a line-by-line execution of statements. Without any modifiers, this is how code is executed.
+2. Selection - Depending on whether a condition is true or false, this control structure may omit execution of a particular block of code. This is sometimes called branching.
+3. Repetition - A block of code can be executed multiple times, either until a specific condition is met, or while a specific condition is met. This is sometimes called looping.
+
+1b. Explain in words what are the 3 kinds of programming errors and give examples.
+
+1. Syntax - Analogous to a spelling or grammar error, this error occurs when the rules of the language are not observed.
+  Ex. forgetting case sensitive instructions, or forgetting a semicolon
+2. Logic - Analogous to a translation error, this error occurs when the program is able to start, but produces unintended results or incorrect output. This can be a result of not fully understanding the problem, or not accounting for all expected inputs/outputs.
+  Ex. When calculating the area of an object, failing to specify that inputs length and width cannot be <= 0, and then receiving a negative area.
+3. Execution/Runtime - Analogous to trying to translate a phrase that has no meaning in another language, this error occurs when the program is asked to do something it cannot do.
+  Ex. Trying to divide by 0, trying to perform an operation on an undeclared variable
+
+1c. What are the 5 functions of all computers?
+1. Input
+2. Processing
+3. Output
+4. Data Storage
+5. Communication/Controlling
+
+
+1d. Explain in words what is a statement and what is an expression and what is the difference.
+
+A statement is analogous to a sentence. it has a clear beginning and an end; it is one complete instruction, but it may be on multiple lines. A program is a series of statements that tell a computer how to generate computer-readable code. A statement is comprised of one or more expressions. Expressions are similar to phrases, they are part of a statement
+
+
+1e. What are the 2 major categories of software and the 3 subcategories of each.
+
+1. Applications
+  1a. Productivity
+  1b. Education
+  1c. Entertainment
+2. Systems
+  2a. Operating Systems
+  2b. Utilities
+  2c. Language Translators
+
+
+
+1f. What are the 3 language translators and how do they work? They translate what to what?
+
+1. Compilers - They take the entire program (in a high-level programming language) at the same time as input, then translates it into machine-readable code (binary), and then finally executes the whole program at once
+2. Interpreters - Like a compiler in that it translates high-level language, but it translates it into an intermediate language, to be executed line-by-line by another program.
+3. Assemblers - Used to convert low-level language (assembly language) into machine-readable code
+
+The three main language translators all translate TO binary, but they differ in the input language, and the method of translation.
+
+

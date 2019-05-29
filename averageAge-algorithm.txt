@@ -1,0 +1,122 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Calculate the average age of everyone in the room.
+
+2. Requirements
+INPUT:
+age
+PeopleCheck
+
+PROCESSING:
+1. Tell user what we are going to do (User Introduction).
+2. Input each person's age and add it to sum. Count each person.
+3. Calculate the average age and output number of people in the room and average age.
+
+OUTPUT:
+User Introduction
+AgePrompt
+PeopleCheckPrompt
+NoPeoplePrompt
+People1Prompt
+People2Prompt
+
+DATA:
+age = each person's age [integer measured in years] valid values are 0 to 122. invalid values will return a message with guidance.
+count = number of people in the room. Valid values are integers >= 0. 
+sum = sum of all ages [integer].
+averageAge = average age of all the people in the room [decimal].
+
+3. Instructions
+1 Set sum=0
+2 Set count=0
+3 Set averageAge
+5 Set PeopleCheck=n
+10 Output User Introduction "This algorithm is going to be used to calculate the average age of everyone in the room."
+  15 Output PeopleCheckPrompt "This algorithm will not work if there are no people in the room. Are there people in the room? (y/n)"
+  17 input PeopleCheck
+  18 if PeopleCheck = y, skip to instruction 20.
+  19 if PeopleCheck = n, output NoPeoplePrompt "There is no average age for people in the room if there are no people in the room.", else return to instruction 15.
+
+ 20 Output AgePrompt "What is your age in years, rounded down to the nearest whole year? Acceptable inputs [0-122]".
+ 30 Input age.
+ 40 If age >= 0 or < 122, then skip to instruction 70. 
+50 Output label "Try again. Acceptable values for age are whole numbers 0 through 122"
+60 Return to instruction 20.
+70 add age to sum.
+80 add 1 to count.
+90 If there are more people to ask their age, then return to instruction 20.
+100 Set averageAge = sum / count
+105 Output People1Prompt "There are"
+107 Output count
+109 Output People2Prompt "people in the room."
+110 Output label "The average age of everyone in the room is" 
+120 Output averageAge
+999 DONE.
+
+
+4. Test Cases
+Test Case#1: What is being tested: No people in the room    and  Input values if any: PeopleCheck = n
+1 Set sum=0
+2 Set count=0
+3 Set averageAge
+5 Set PeopleCheck=n
+10 This algorithm is going to be used to calculate the average age of everyone in the room.
+15 This algorithm will not work if there are no people in the room. Are there people in the room? (y/n)
+17 PeopleCheck = n
+19 true , There is no average age for people in the room if there are no people in the room.
+
+999 DONE.
+
+Test Case#2: What is being tested: No people in the room #2    and  Input values if any: PeopleCheck = jjjj
+1 Set sum=0
+2 Set count=0
+3 Set averageAge
+4 Set CheckDone=0
+5 Set PeopleCheck=n
+10 This algorithm is going to be used to calculate the average age of everyone in the room.
+15 This algorithm will not work if there are no people in the room. Are there people in the room? (y/n)
+17 PeopleCheck = jjjj
+18 False
+19 False
+15 This algorithm will not work if there are no people in the room. Are there people in the room? (y/n)
+Repeated until acceptable input (y or n) is given
+
+Test Case#3: What is being tested:3 people, ages 15, 20, 25 and  Input values if any: PeopleCheck = y age = 15, 20, 25
+1 Set sum=0
+2 Set count=0
+3 Set averageAge=0
+5 Set PeopleCheck=n
+10 This algorithm is going to be used to calculate the average age of everyone in the room.
+15 This algorithm will not work if there are no people in the room. Are there people in the room? (y/n)
+17 PeopleCheck = y
+18 True
+20 What is your age in years, rounded down to the nearest whole year? Acceptable inputs [0-122]
+30 age = 15
+40 True 
+70 sum = 0 + 15 = 15
+80 count = 0 + 1 = 1
+90 True
+20 What is your age in years, rounded down to the nearest whole year? Acceptable inputs [0-122]
+30 age = 20
+40 True
+70 sum = 15 + 20 = 35
+80 count = 1 + 1 = 2
+90 True
+20 What is your age in years, rounded down to the nearest whole year? Acceptable inputs [0-122]
+30 age = 25
+40 True
+70 sum = 35 + 25 = 60
+80 count = 2 + 1 = 3
+90 False
+100 averageAge = 60 / 3
+105 There are
+107 3
+109 people in the room.
+110 The average age of everyone in the room is 
+120 20
+999 DONE.
+
+
+
+

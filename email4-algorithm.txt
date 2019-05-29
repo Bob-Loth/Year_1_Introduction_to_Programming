@@ -1,0 +1,277 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Produce a list of valid, nonduplicate email addresses from a given file, and display them according to the specifications
+2. Requirements
+INPUT: 
+prompt for both the input and output file names, allowing blank for the "default" name. 
+PROCESSING:
+set default conditions for input file and enterKey flag
+output prompt and receive input
+determine whether a different filename was entered, choose output file based on that
+output a label for the input and output file names
+wait an indefinite amount of time for the user to press enter
+fileValid() is a subprogram that tests whether or not a given string is less than 5 characters, or does not have ".txt" as its ending characters.
+If either of those statements are true, the string is deemed invalid, and the subprogram returns false.
+processLines() opens a file, checks each line for email addresses, and outputs any email addresses found on that line
+() change the case of a string for comparison purposes
+() maintain a list for case independent nonduplicate email addresses
+
+OUTPUT: 
+output to the console the input and output file names selected, converting any blanks to their corresponding default names.
+There is NO file input or output in this version.
+DATA:
+iFileName is the input file name
+dFileName is the default file name
+oFileName is the output file name
+
+3. Instructions
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: copyPasteMyEmails.txt]:
+40 receive input for iFileName through the console
+50 if length of iFileName = 0, then use default filename
+55 evaluate iFileName using a function called FileValid that checks whether the file is valid or not, if it is invalid, use default filename
+60 if file was valid and length of iFileName was not 0, then dFileName = iFileName
+70 check if iFilename exists in the working folder, close if there are any errors
+71 Search the input file for valid email addresses. Valid email addresses contain a @ symbol, at least one valid character before it, and one of the valid characters after it must be a . that is not adjacent to the @ sign.
+71.5 Add the first valid email address to a list called nonDupe.
+72 Search the next line for valid email addresses. 
+72.5 If the next valid email address does not already exist in the nonDupe list, add it to the nonDupe list.
+73 For every valid email address on the line, add 1 to a counter called nEmailLine.  
+74 Once the line is over, add nEmailLine to a separate counter called nLineTotal. This counts the total amount of valid email addresses in the file.
+80 if there are more lines in the file, go down one line and return to instruction 72.
+82 Output all the contents of the nonDupe list in the line onto one line on the console, separated by a semicolon. 
+85 Enter output filename [default: copyPasteMyEmails.txt]:
+90 input of oFileName
+110 if length of oFileName = 0, or fileValid returns false, then oFileName = dFileName
+120 output label for the input file name, and iFileName
+130 output label for the output file name, and oFileName
+140 output a prompt to press ENTER key to continue
+150 input a character
+END
+substr.(s,e-s); gets the first position and the length of the line
+
+4. Test Cases
+0.txt: What is being Tested: no valid email addresses in file  Expected result: blank output, except for 0 email addresses in file prompt
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 0.txt
+50 false
+55 file is valid
+60 dFileName = 0.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 line contains to valid email addresses
+73 nEmailLine = 0
+74 nEmailTotal = 0.  No valid email addresses in file.
+80 return to 72, check for valid emails for remaining lines (no valid emails)
+85 Enter output filename [default: 0.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 0.txt"
+130 "output file: 0.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+1.txt: What is being Tested: Lines that contain valid email addresses mixed in with other data  Expected result: Only output valid email addresses
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 1.txt
+50 false
+55 file is valid
+60 dFileName = 1.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 line contains no valid email addresses
+73 nEmailLine = 0
+74 74 nEmailTotal = 0.  No valid email addresses in file.
+80 72-80 loop repeats until the first valid email address on line 22.
+72 Line contains a valid email address as defined in instructions above. output the 1 email address found on this line.
+73 nEmailLine =1
+74 nEmailTotal = 1
+80 72-80 loop continues for 40 repetitions, nEmailTotal = 40 across 40 lines.
+85 Enter output filename [default: 0.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 1.txt"
+130 "output file: 1.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+2.txt: What is being Tested: emails in html(?) code  Expected result: 80 emails, 2 per line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 2.txt
+50 false
+55 file is valid
+60 dFileName = 2.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop continues until line 93, where it finds 2 valid email addresses.
+73 nEmailLine = 1
+80 72-80 loop continues and finds 2 email addresses every 8 lines after line 93, nEmailTotal = 80.
+85 Enter output filename [default: 2.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 2.txt"
+130 "output file: 2.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+3.txt: What is being Tested: Finding multiple emails on one line  Expected result: 7 email addresses, output on one line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 3.txt
+50 false
+55 file is valid
+60 dFileName = 3.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 7 email addresses on line 1, and no more lines. nEmailLine = 7 and nEmailTotal = 7
+85 Enter output filename [default: 3.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 3.txt"
+130 "output file: 3.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+4.txt: What is being Tested: Finding multiple emails on one line  Expected result: 40 email addresses, output on one line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 4.txt
+50 false
+55 file is valid
+60 dFileName = 4.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 40 email addresses on line 1, and no more lines. nEmailLine = 40 and nEmailTotal = 40
+85 Enter output filename [default: 4.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 4.txt"
+130 "output file: 4.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+5.txt: What is being Tested: Finding multiple emails on one line  Expected result: 40 email addresses, output on one line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 5.txt
+50 false
+55 file is valid
+60 dFileName = 5.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 40 email addresses on line 1, and no more lines. nEmailLine = 40 and nEmailTotal = 40
+85 Enter output filename [default: 5.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 5.txt"
+130 "output file: 5.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+6.txt: What is being Tested: One Email per line, removing ;, and readding them in program  Expected result: nEmailLine = 1, and nEmailTotal = 40.
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 6.txt
+50 false
+55 file is valid
+60 dFileName = 6.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 1 email address per line, for 4 lines. For each line, nEmailLine = 1, and nEmailTotal = 40.
+85 Enter output filename [default: 6.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 6.txt"
+130 "output file: 6.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+7.txt: What is being Tested: 12 email addresses on 13 lines  Expected result: nEmailLine = 1 for all except line 7, nEmailTotal = 12
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 7.txt
+50 false
+55 file is valid
+60 dFileName = 7.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 1 email address per line, for 6 lines. For each line, nEmailLine = 1, and nEmailTotal = 6.
+72 72-80 loop found 0 email addresses on line 7. nEmailLine = 0, nEmailTotal = 6.
+72 72-80 loop found 1 email address per line, for 6 lines. For each line, nEmailLine = 1, and nEmailTotal = 12.
+85 Enter output filename [default: 7.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 7.txt"
+130 "output file: 7.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+8.txt: What is being Tested: 4 email addresses on one line  Expected result: nEmailLine = 4, and nEmailTotal = 4.
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 8.txt
+50 false
+55 file is valid
+60 dFileName = 8.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 4 email address per line, for 1 lines. For each line, nEmailLine = 4, and nEmailTotal = 4.
+85 Enter output filename [default: 8.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 8.txt"
+130 "output file: 8.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+9.txt: What is being Tested: no email addresses on 1 line.  Expected result: nEmailLine = 0, and nEmailTotal = 0.
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 9.txt
+50 false
+55 file is valid
+60 dFileName = 9.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 0 email addresses on line 7. nEmailLine = 0, nEmailTotal = 0.
+85 Enter output filename [default: 9.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: 9.txt"
+130 "output file: 9.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+math1.txt: What is being Tested: Search through directory and output only valid email addresses  Expected result: nEmailLine = 1 for 40 lines, nEmailTotal = 40
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = math1.txt
+50 false
+55 file is valid
+60 dFileName = math1.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 1 email address on line 22. nEmailLine = 1, nEmailTotal = 1.
+72 72-80 loop found 1 email address per line on lines 23-61. nEmailLine = 1, nEmailTotal = 40.
+85 Enter output filename [default: math1.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+120 "input file: math1.txt"
+130 "output file: math1.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+

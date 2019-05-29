@@ -1,0 +1,80 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Decode secrets.txt produced by nsaencoder1.cpp
+
+2. Requirements
+INPUT: file named secrets.txt
+
+PROCESSING:
+set input and output file stream commands
+open secrets.txt, check for errors and close safely if they occur
+get a line from secrets.txt
+save the line as a string variable
+for all the characters in the string, subtract 1 to each character's UNICODE value, changing the characters in the string
+output the new, decoded string to the console
+repeat, getting the next line and performing the decoding, then output the next line to the console
+when all lines are decoded, close secrets.txt
+
+
+
+
+OUTPUT: decoded text to the console
+
+DATA:
+
+
+3. Instructions
+5 create an a list containing the integers -5, 8, 12, 6, and 1
+6 create a variable called i that starts at 0 and counts up by 1
+7 create a variable called index that is the remainder of i divided by the size of the list (5 i this case).
+10 open secret.txt for input
+15 check for errors and close program if there are errors
+20 input the first/next line from the input file. if there are no more lines, then skip to instruction 30
+22 save line as a string
+24 for each character in the string, subtract the number in the list described by index to its UNICODE value, then save it over the character in the string
+26 output the decoded line/string to the console
+28 when there are no more characters in the line/string, return to instruction 20
+30 close input file
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: Wide variety of characters, lines without characters     and  Input values if any: 
+encoded text    expected decoded text
+\{fl!l[DEL]qx   asdf qwer    
+,:?:            1234
+
+
+\{fl            asdf
+
+
+10 secret.txt is now open
+15 no errors
+20 input  \{fl!l[DEL]qx from secrets.txt
+22 string = \{fl!l[DEL]qx
+24 \ - -5 = a, { - 8 = s, f - 12 = d, l - 6 = f, ! - 1 = ' ', l - -5 = q, [DEL] - 8 = w, q - 12 = e, x - 6 = r
+26 asdf qwer
+28 return to 20
+20 input ,:?: from secrets.txt
+22 string = ,:?:
+24 , - -5 = 1, : - 8 = 2, ? - 12 = 3, : - 6 = 4
+26 1234
+28 return to 20
+20 input "" from secrets.txt
+22 string = ""
+24 string of length 0
+26 ""
+28return to 20
+20 input "" from secrets.txt
+22 string = ""
+24 string of length 0
+26 ""
+28 return to 20
+20 input \{fl from secrets.txt
+24 \ - -5 = a, { - 8 = s, f - 12 = d, l - 6 = f
+26 asdf
+28 no more lines to decode
+30 secret.txt is now closed
+END

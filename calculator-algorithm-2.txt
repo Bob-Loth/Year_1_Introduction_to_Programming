@@ -1,0 +1,118 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective : Create a simple 4-function calculator.
+
+2. Requirements
+INPUT:
+first number
+operator (+ - * /)
+second number
+
+
+PROCESSING:
+declare number1
+declare number2
+
+assign numbers to each operating case
+perform that operation and only that operation when the case is selected, using number1 and number2
+
+show output describing the calculation that took place, and its result
+
+
+OUTPUT:
+user introduction
+result of the calculation, with display of operation
+
+DATA:
+number1 // first number entered
+number2 // second number entered
+operator // number referencing a case to be carried out
+result // result of the calculation
+
+3. Instructions
+10 declare number1
+20 declare number2
+30 output user introduction
+40 prompt user to input number1
+50 store as number1
+60 prompt user to input number2
+70 store as number2
+80 prompt user to input 1, 2, 3, or 4
+90 store as operator
+100 if operator = 1, add number1 and number2      1 + 2
+110 if operator = 2, subtract number2 from number1 1 - 2
+120 if operator = 3, multiply number1 and number2 1 * 2
+130 if operator = 4, if number2 = 0, skip to 135, else divide number1 by number2 1 / 2 then skip to 140
+135  output error message and return to instruction 30
+140 if operator is not 1, 2, 3, OR 4, output error message and return to instruction 80
+150 output a formatted calculation, and output the result.
+160 repeat instructions from 30 if there are additional calculations
+999 DONE
+
+4. Test Cases
+Test Case#1: What is being tested: basic addition, multiplication, repeating    and  Input values if any: number1=6 number2=5, second time(multiplication) number1=2 number2=2 Expected Result = 11
+10 number1 = 
+20 number2 = 
+30 This program will perform 4-function calculations on two numbers.
+40 Please input number1
+50 number1 = 6
+60 Please input number2
+70 number2 = 5
+80 Please enter 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+90 operator = 1
+100 true, result = 6 + 5 = 11
+110 false
+120 false
+130 false
+135 false
+140 false
+150 6 + 5 = 11
+160 any additional calculations? y/n  Y
+30 This program will perform 4-function calculations on two numbers.
+40 Please input number1
+50 number1 = 2
+60 Please input number2
+70 number2= 2
+80 Please enter 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+90 operator = 3
+100 false
+110 false
+120 true, result = 2 * 2 = 4
+130 false
+135 false
+140 false
+150 2 * 2 = 4
+160 any additional calculations? y/n  N
+999 DONE
+
+Test Case#2: What is being tested: divide by 0, or trying to enter invalid operator value  and  Input values if any: number1=6 number2=0 Expected result: error message, then repeat until operator query, then error message
+
+10 number1 = 
+20 number2 = 
+30 This program will perform 4-function calculations on two numbers.
+40 Please input number1
+50 number1 = 6
+60 Please input number2
+70 number2 = 0
+80 Please enter 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+90 operator = 4
+100 false
+110 false
+120 false
+130 true, output error message then skip to 30
+30 30 This program will perform 4-function calculations on two numbers.
+40 Please input number1
+50 number1 = 6
+60 Please input number2
+70 number2 = 0
+80 Please enter 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+90 operator = 6
+100 false
+110 false
+120 false
+130 false
+140 error message- unknown value for operator
+80 Please enter 1 for addition, 2 for subtraction, 3 for multiplication, or 4 for division
+repeat until valid operator value is given
+

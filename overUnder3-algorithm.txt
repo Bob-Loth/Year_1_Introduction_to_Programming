@@ -1,0 +1,46 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: create overUnder3-algorithm.txt to keep a list of every user guess and output a message if the user guesses a
+number already guessed. use an array-based list to check.
+
+2. Requirements
+INPUT: userGuess, integer between 1 and 100 to guess a random number
+
+
+PROCESSING:
+create a random number between 1 and 100
+create an array-based list
+get user input to guess a number, if that number is already on the array-based list then tell them
+save that number to the array-based list if is not already on the list
+if the guess is lower than the rnadom number then output that it is too low, and return to get user input
+if the guess is higher than the rnadom number then output that it is too high, and return to get user input
+if the guess is correct, tell them it is correct and end program
+
+
+OUTPUT: tooHighPrompt
+        tooLowPrompt
+        correctGuessPrompt
+
+DATA: 
+arrayGuess
+tooHighPrompt
+tooLowPrompt
+correctGuessPrompt
+
+
+
+3. Instructions
+10 create a random number between 1 and 100
+20 create an array-based list
+30 get user input to guess a number, if that number is already on the array-based list then tell them
+40 save that number to the array-based list if is not already on the list
+50 if the guess is lower than the rnadom number then output that it is too low, and return to 30
+60 if the guess is higher than the rnadom number then output that it is too high, and return to 30
+70 if the guess is correct, tell them it is correct and end program
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: Wide variety of characters, lines without characters     and  Input values if any: secrets.txt encoded version of threeQuestions.cpp

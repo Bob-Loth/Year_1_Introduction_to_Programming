@@ -1,0 +1,132 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective:
+Play a game of rock, paper, scissors between the computer and a human player.
+Track score, do not count ties, and output the numbers of computer wins and human wins after all play ends.
+Replay until the human player decides to quit.
+
+2. Requirements
+INPUT:
+R or r for rock, P or p for paper, S or s for scissors, or Q or q to quit. 
+Computer input will be randomly generated (0-rock, 1-paper, 2-scissors).
+
+PROCESSING:
+-->>generate a random number between 0 to 2 for computer's choice of rock, paper, or scissors
+prompt for userPlay
+input userPlay
+randomly generate computerPlay
+determine winner
+output computerPlay and userPlay and who won
+if user won, add 1 to userScore, else if computer won, add 1 to computerScore
+output computerScore and userScore with appropriate labels
+prompt for userPlay
+if human wants to quit, then END
+-->>repeat
+
+OUTPUT:
+the result of each individual match
+the total score
+
+DATA:
+userPlay // the user input that determines what hand they throw. Acceptable values R r, P p, S s, for rock paper scissors, or Q q, to quit
+computerPlay // randomly generated computer input that simulates an opponent's hand throw.
+userScore initial value 0// Total amount of wins for the human player
+computerScore initial value 0// Total amount of wins for the computer player
+
+
+3. Instructions
+10 generate a random number between 0 to 2 for computer's choice of rock, paper, or scissors
+20 prompt for userPlay
+30 input userPlay
+40 validate userPlay, if userPlay is Q or q, then go to instruction 500.
+41 if userPlay is R,r,P,p,S,s, then continue to instruction 50
+42 if userPlay is invalid, display error message, return to instruction 10
+50 determine winner: 
+51    if computer = r AND user = r , TIE declare a tie, award no points, display current scores then return to instruction 10
+52    if computer = r AND user = p , USERWIN give user a point, display current scores then return to instruction 10 
+53    if computer = r AND user = s , COMPUTERWIN give computer a point, display current scores then return to instruction 10
+54    if computer = p AND user = r , COMPUTERWIN give computer a point, display current scores then return to instruction 10
+55    if computer = p AND user = p , TIE declare a tie, award no points, display current scores then return to instruction 10
+56    if computer = p AND user = s , USERWIN give user a point, display current scores then return to instruction 10 
+57    if computer = s AND user = r , USERWIN give user a point, display current scores then return to instruction 10 
+58    if computer = s AND user = p , COMPUTERWIN give computer a point, display current scores then return to instruction 10
+59    if computer = s AND user = s , TIE declare a tie, award no points, display current scores then return to instruction 10
+500 display the final score
+502 if userScore > computerScore, output user win message
+503 if userScore < computerScore, output computer win message
+504 if userScore = computerScore, declare a tie
+505 output "Thanks for playing!"
+
+
+999 END
+
+
+4. Test Cases
+Test Case#1: What is being tested: invalid input    and  Input values if any: userPlay = e Expected result: error message, then return to input prompt.
+10 computerPlay = 0
+20 Choose: [R=rock, P=paper, S=scissors, or Q=quit]: 
+30 userPlay = e
+40 false
+41 false
+42 true, Please enter R=rock, P=paper, S=scissors, or Q=quit, return to instruction 10
+
+Test Case#1: What is being tested: tie, then quit   and  Input values if any: userPlay = r, second time userPlay = Q computerplay = r, second time computerplay = s Expected result: declare tie, then quit
+10 computerPlay= r
+20 Choose: [R=rock, P=paper, S=scissors, or Q=quit]: 
+30 userPlay = r
+40 false
+41 true
+42 skipped
+50 determine winner: 
+51    if computer = r AND user = r , TIE declare a tie, award no points, display current scores then return to instruction 10
+10 computerPlay = s
+20 Choose: [R=rock, P=paper, S=scissors, or Q=quit]: 
+30 userPlay = Q
+40 true
+500 display the final score
+502 false
+503 false
+504 true Tie declared, score userScore = 0, computerScore = 0
+505 "Thanks for playing!"
+
+Test Case#1: What is being tested: userwin, then userwin, then quit   and  Input values if any: userPlay = r,             computerPlay = s
+                                                                                   second time  userPlay = s second time  computerPlay = p 
+                                                                                    third time  userPlay = Q  third time  computerPlay = r        Expected result: declare win, then quit
+
+10 computerPlay = s
+20 Choose: [R=rock, P=paper, S=scissors, or Q=quit]: 
+30 userPlay = r
+40 false
+41 true
+42 skipped
+50 determine winner: 
+51    false
+52    false
+53    false
+54    false
+55    false
+56    false
+57    true, userScore = 1, userScore = 1, computerScore = 0 then return to instruction 10 
+10 computerPlay = p
+20 20 Choose: [R=rock, P=paper, S=scissors, or Q=quit]: 
+30 userPlay = s
+40 false
+41 true
+42 skipped
+50 determine winner: 
+51    false
+52    false
+53    false
+54    false
+55    false
+56    true, userScore = , display current scores then return to instruction 10 
+10 computerplay = r
+20 Choose: [R=rock, P=paper, S=scissors, or Q=quit]: 
+30 userPlay = Q
+40 true
+500 final score: userScore = 2, computerScore = 0
+502 true, User Wins!
+503 false
+504 false
+505 output "Thanks for playing!"

@@ -1,0 +1,45 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Sort a list of 5 names acquired from a text file into alphabetical order
+
+2. Requirements
+INPUT: 
+up to 5 names in a file called myFriends.txt
+
+PROCESSING: 
+ Prompt the user to enter the filename via the console keyboard.
+ Skip any blank lines that may be in the input file.
+ Skip any exact duplicates that may be in the input file.
+ Sort names alphabetically, and output up to 5 names to the screen
+ Both scorting and checking for duplicates must be case independent
+
+
+OUTPUT: up to 5 names, sorted and output to the console
+
+DATA: 
+
+ fileName, input file name
+ line, a line from the input file
+ averageScore, calculated average of all the scores from the input file
+ count=0, number of scores in the input file
+ totalScores, sum of all the scores in the input file
+ maxScore,  highest score of all the scores in the input file
+ minScore, lowest score of all the scores in the input file
+ nGreater, number of scores greater than the average score
+ i;  index value for traversing each element in the array
+ SIZE = 5
+ names[SIZE]
+ nNames = 0
+ temp,  temporary storage used in sorting
+  
+
+3. Instructions
+
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: Basic sorting   and  Input values if any: file contains: Sasha, Carl, beth, Alex, Pat
+Expected output: Alex, beth, Carl, Pat, Sasha

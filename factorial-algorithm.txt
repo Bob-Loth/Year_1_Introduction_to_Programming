@@ -1,0 +1,80 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: calculate a factorial of a given integer
+2. Requirements
+INPUT: 
+a positive integer, including 0. User input
+
+PROCESSING:
+Prompt user to input
+receive input 
+validate input (must be >= 0 and an integer)
+if input is 0 or 1, skip to save input as result.
+multiply input by (input-1), save to input
+multiply result by (input-2), save to input
+continue pattern until multiplier is equal to 1.
+Save input as result
+Output result with label
+
+
+OUTPUT: 
+Prompt to enter a positive integer including 0
+result of the factorial calculation
+label of the factorial calculation
+DATA:
+
+
+3. Instructions
+10 display prompt
+20 receive input, save as input
+30 if input < 0, ask again. Truncate any existing decimals.
+35 if input is 0 or 1, skip to 90
+40 set a variable i to 1.
+50 multiply result by i, save as result.
+60 increase i by 1.
+70 if input = i, then skip to 90
+80 go back to 50
+90 if input = 0 or 1, result = 1
+100 output result with appropriate label
+
+4. Test Cases
+Test Case#1: What is being tested: basic function Input values if any: input=4
+Expected output: result = 24
+10 This program will calculate a factorial.
+20 input = 4
+30 false
+35 false
+40 i=1
+50 result = 4 * 4-1 = 12
+60 i = 2
+70 false
+80 go back to 50
+50 result = 12 * 4-2 = 24
+60 i = 3
+70 false
+80 go back to 50
+50 result = 24 * 4-3 = 24
+60 i = 4
+70 true
+90 false
+100 
+
+Test Case#2: What is being tested: 0!=1 Input values if any: input=0
+Expected output: result = 1
+10 This program will calculate a factorial.
+20 input = 0
+30 if input < 0, ask again. Truncate any existing decimals.
+35 if input is 0 or 1, skip to 90
+90 result = 1
+100 0! = 1
+
+Test Case#3: What is being tested: 1!=1 Input values if any: input=1
+Expected output: result = 1
+10 This program will calculate a factorial.
+20 input = 1
+30 if input < 0, ask again. Truncate any existing decimals.
+35 if input is 0 or 1, skip to 90
+90 true, result = 1
+100 1! = 1
+

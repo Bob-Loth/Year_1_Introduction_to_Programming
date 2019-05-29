@@ -1,0 +1,74 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: play the card game War.
+2. Requirements
+INPUT: 
+random number generator for suit of computer 0-12
+random number generator for suit of player 0-12
+rng for number of player's card 0-3
+rng for number of computer's card 0-3
+
+PROCESSING:
+generate random number for suit for each player
+generate random number for card number for each player
+create output conditions for suit for each player
+Determine the winner:
+If the computer's card's value is LESS than the human's card's value, output "Human wins!"
+If the computer's card's value is EQUAL TO the human's card's value, output "It's a tie."
+If the computer's card's value is GREATER than the human's card's value, output "Computer wins!"
+
+
+OUTPUT: decoded text to the console
+output 2-10 as the value card, but output 1, 11, 12, 13 as the special cards
+output the suit of both cards
+output the winner, or declare a tie
+
+DATA:
+playerSuit //rng from 0-3 to simulate suit in cards.  Has no bearing on who wins
+compSuit //rng from 0-3 to simulate suit in cards. Has no bearing on who wins
+playerSuitOutput //translate 0-3 into hearts, clubs, spades, or diamonds.
+compSuitOutput //translate 0-3 into hearts, clubs, spades, or diamonds.
+playerValue //rng from 1-13 to simulate card number. 2-10 are normal but 1 is ace, 11 is jack, 12 is queen, 13 is king
+compValue //rng from 1-13 to simulate card number. 2-10 are normal but 1 is ace, 11 is jack, 12 is queen, 13 is king
+playerValueOutput // string value used as label to pronounce the winner of each round.
+compVictorOutput // string value used as label to pronounce the winner of each round.
+repeatGame // character used to continue or exit game
+
+Instructions:
+1 pick a random number between 0 and 3, inclusive. Save as playerSuit
+2 pick a random number between 0 and 3, inclusive. Save as compSuit
+3 pick a random number between 1 and 13, inclusive. Save as playerValue
+4 pick a random number between 1 and 13, inclusive. Save as compValue
+8 output playerSuitOutput and playerValue
+9 output computerSuitOutput and compValue
+10 if playerValue = compValue, then show tieVictor and suits,values and go back to step 1
+20 if compValue > playerValue, then show compVictorOutput and suits,values 
+30 if playerValue > compValue, then show playerVictorOutput and suits,values 
+40 ask to play again. if yes, then go back to step 1
+END
+
+4. Test Cases
+Test Case#1: What is being tested: tie, then player win Input values if any: playerValue = 7,13 compValue = 7,1
+1 playerSuit = 1
+2 compSuit = 3
+3 playerValue = 7
+4 compValue = 7
+8 player drew a 7 of clubs
+9 computer drew a 7 of diamonds
+10 It's a tie! 7 of clubs : 7 of diamonds
+20 false
+30 false
+40 play again? [y/n] y
+1 playersuit = 2
+2 compSuit = 2
+3 playerValue = 13
+4 compValue = 1
+8 player drew a King of spades
+9 computer drew an Ace of spades
+10 false
+20 false
+30 true, Player wins King of spades : Ace of Spades
+40 play again? [y/n] n
+END
+

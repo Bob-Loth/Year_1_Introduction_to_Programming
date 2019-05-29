@@ -1,0 +1,147 @@
+Robert Loth
+COMSC-110-1021
+Lab 11
+
+1. Objective: input number of scores to be input, then input that many scores, calculate the maximum score, average score, minimum score, and how many A grade scores.
+
+2. Requirements:
+--INPUT
+size
+scores
+
+--PROCESSING
+input size
+input scores (each score between 0-100)
+sort the scores from low to high
+calculate the maximum, minimum, and average score, and the number scores that are an A grade
+output the sorted scores
+output minimum score
+output high score
+output average score
+output the number of A grade scores
+
+
+--OUTPUT
+objective
+author
+user instructions
+prompt1 "How many scores? "
+prompt2 "Enter a score: "
+label1 "Sorted: "
+label2 "Minimum: "
+label3 "Maximum: "
+label4 "Average: "
+label5 "Number of A grades: "
+
+
+--DATA
+size-->>the number of values to be input (integer)
+array-Scores-->>dynamically defined for SIZE number of values (integer)
+max-->>maximum value of inputed values (integer)
+min-->>minimum value of inputed values (integer)
+sum-->>total of inputed values (integer)
+average-->>average value of inputed values (decimal)
+nGradeA-->>number of scores that are A grade
+temp-->>used for temporarily storing one of the values in the array in the swapping process to sort (integer)
+i-->>outer loop index for sorting (integer)
+j-->>inner loop index for sorting (integer)
+
+
+3. Algorithm Instructions
+***user information
+10 output objective
+20 output author
+30 output user instructions
+***initialize values
+40 size = 0
+50 int* array-Scores
+60 int max
+70 int min
+80 int sum = 0
+90 double average = 0
+100 int nGradeA = 0
+110 int temp
+120 int i 
+130 int j
+***input loop
+140 prompt: "enter a score [0-100] or hit -99 to finish
+150 if input is -99 skip to calculations
+
+160 if input is 0-100 save as the next value in array-Scores, add the value to sum, add 1 to size
+170 repeat, go to step 140
+
+***calculate average
+180 average = sum / size
+***sort loops
+190 compare 1st value to second value
+200 if 1st value is higher than second then switch the values using a temporary variable called temp
+210 do step 190 and 200 for the first value and the next value until there are no more values
+220 do step 190, 200, and 210, using the next value and comparing it against all following values, until there are no more values
+***calculate the number of scores that are an A grade
+230 if score is greater or equal to 90 add 1 to nGradeA
+***calculate minimum and maximum
+240 min = array-Scores[0] 
+250 max = array-Scores[size-1]
+***output results
+260 output the average
+270 output the max
+280 output the min
+290 output nGradeA
+999 END
+
+
+4. Test Cases
+Test Case #1: SIZE=4. Input values: 96 94 64 92.  Expected results: minimum=64. maximum=96. average=86.5 number of A grades=3.
+10 This program will perform analysis on a given array of integers, supplied by user input.
+20 Robert loth
+30 Please enter a score [0-100] or hit -99 to finish
+40 size = 0
+50 int* array-Scores
+60 int max
+70 int min
+80 int sum = 0
+90 double average = 0
+100 int nGradeA = 0
+110 int temp
+120 int i 
+130 int j
+140 enter a score [0-100] or hit -99 to finish : 96 size = 1
+150 false
+160 true, array-Scores[0] = 96, sum = 0 + 96 = 96 
+140 enter a score [0-100] or hit -99 to finish : 94 size = 2
+150 false
+160 true, array-Scores[1] = 94, sum = 96 + 94 = 190 
+140 enter a score [0-100] or hit -99 to finish : 64 size = 3
+150 false
+160 true, array-Scores[2] = 64, sum = 190 + 64 = 254 
+140 enter a score [0-100] or hit -99 to finish : 92 size = 4
+150 false
+160 true, array-Scores[3] = 92, sum = 254 + 92 = 346
+140 enter a score [0-100] or hit -99 to finish : -99 size = 4
+150 true
+180 average = 346 / 4 = 86.5
+190 array-Scores[0]= 96 array-Scores[1] = 94
+200 96 is higher than 94, temp = 96, arrayScores[0] = arrayScores[1]= 94, arrayScores[1] = temp = 96
+190 array-Scores[0]= 94 array-Scores[2] = 64
+200 94 is higher than 64,  temp = 94, arrayScores[0] = arrayScores[2]= 64, arrayScores[2] = temp = 94
+190 array-Scores[0]= 64 array-Scores[3] = 92
+200 92 is not higher than 64, do nothing
+190 array-Scores[1]= 96 array-Scores[2] = 94
+200 96 is higher than 94,  temp = 96, arrayScores[1] = arrayScores[2]= 94, arrayScores[2] = temp = 96
+190 array-Scores[1]= 94 array-Scores[3] = 92
+200 94 is higher than 92,  temp = 94, arrayScores[1] = arrayScores[3]= 92, arrayScores[3] = temp = 94
+190 array-Scores[2]= 96 array-Scores[3] = 94
+200 96 is higher than 94,  temp = 96, arrayScores[2]= 94, arrayScores[3] = temp = 96
+210 done
+220 done
+230 score[0] = 64, nGradeA = 0
+230 score[1] = 92, nGradeA = 1
+230 score[2] = 94, nGradeA = 2
+230 score[3] = 96, nGradeA = 3
+240 min = score[0] = 64
+250 max = score[size - 1] score[3] = 96
+260 Average is 86.5
+270 max is 96
+280 min is 64
+290 3 grades were A
+999 END

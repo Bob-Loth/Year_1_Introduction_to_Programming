@@ -1,0 +1,337 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Produce a list of valid, nonduplicate email addresses from a given file, display them in a sorted list, and output that sorted list to a specified output file.
+2. Requirements
+INPUT: 
+input and output file names, allowing blank for the "default" name. 
+an input file containing (or not containing) email addresses, specified by the user
+an output file where any email addresses found in the input file will be stored.
+
+PROCESSING:
+gets input file name
+input validation for input file
+opens file, checks for valid, nonduplicate emails, saves emails to nonDupe list, and closes file 
+sorts nonDupe list into alphabetical order
+output non-duplicate, sorted emails from nonDupe list to console
+gets output file name
+input validation for output file
+outputs results into output file name
+
+OUTPUT: 
+user introduction
+output to the console the input and output file names selected.
+a message asking user to check their files, displayed if the program did not find any email addresses.
+an output file where any email addresses found in the input file will be stored.
+instructions on how to use the resulting output file.
+
+DATA:
+SubPrograms:
+fileValid()checks to see if it is a string of 5 characters or greater, and that the last 4 characters are ".txt" 
+getFileName() uses fileValid to determine whether or not to use a default filename. if fileValid = false, then default filename is used.
+processLines() opens a file as a string parameter, checks each line for email addresses, and outputs any email addresses found on that line.
+isValidEmailChar() checks to see if the character is 0-9, a-z, A-Z, or _,-,+,. Returns true if one of those characters is found.
+isDuplicate() checks anEmail whether it is a duplicate email address using case sensitive comparison to create list of non-duplicate email addresses
+changeCase() converts string to all one case for case dependent comparisons
+sortlist() sorts the nonDupe list into alphabetical order, and passes it by reference back to main.
+outputList() outputs the sorted nonDupe list to a file of the user's choosing, properly formatted.
+
+Data Items:
+iFileName is the input file name specified by user, or fileContainingEmails.txt if user types invalid file
+dFileName is the default file name
+oFileName is the output file name, specified by user, or copyPasteMyEmails.txt if user types invalid file
+nonDupe is the list of all valid email addresses. It is populated as unsorted, then is sorted later.
+nonDupeAlpha is the list of all valid email addresses in all caps. It is populated as unsorted, then is used to sort nonDupe.
+fin is used in processLine to get file input
+fout is used in outputlist to output the sorted nonDupeList to a given output file
+i(main) is used in main() to output all items in sorted nonDupe list to console
+ValidCheck is a flag in fileValid() that is only true if no invalid characters are in iFileName.
+f is used in fileValid() to store the iFileName to perform its validity check.
+lFile is used in fileValid() to simplify the f.length expression to check for .txt at end of file name
+i(fileValid) is used to check each character in iFileName to perform its validity check.
+validChar is a flag in isValidEmailChar that is only true if the given character is a valid email character.
+i(processLines) in an index variable in a loop that traverses all the characters in a line.
+s(processLines) is an index variable that traverses valid email characters before a @ character as defined by isValidEmailChar, and stops at the first valid character.
+e(processLines) is an index variable that traverses valid email characters after a @ character as defined by isValidEmailChar, and stops at the last valid character.
+k is an index variable in isDuplicate that does 2 things. If k is 0, then the email is added to the list. Otherwise, aEmail will be added as the kth element of the nonDupe list
+duplicateFound is a flag in isDuplicate. If it is true, then the email is not added to the list, the loop stops searching the list, and the next email is selected.
+s is the input parameter for changeCase. It is a string.
+capslock is a string of characters from the input parameter s in changeCase, converted to all uppercase
+i(changeCase) is used to traverse each character in s.
+i(sortList) is used as the outer loop index in the swap sort.
+j(sortList) is used as the inner loop index in the swap sort.
+k(sortList) is used to populate nonDupeAlpha with the contents of nonDupe in all caps.
+temp is a string in sortList that temporarily stores values in nonDupeAlpha for the swap sort.
+temp2 is a string in sortList that temporarily stores values in nonDupe for the swap sort.
+m is an index variable in outputList that is used to output all values in the sorted nonDupe list, separated by a semicolon and a space, to the output file specified by oFileName.
+
+3. Instructions
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: copyPasteMyEmails.txt]:
+40 receive input for iFileName through the console
+50 if length of iFileName = 0, then use default filename
+55 evaluate iFileName using a function called FileValid that checks whether the file is valid or not, if it is invalid, use default filename
+60 if file was valid and length of iFileName was not 0, then dFileName = iFileName
+70 check if iFilename exists in the working folder, close if there are any errors
+71 Search the input file for valid email addresses. Valid email addresses contain a @ symbol, at least one valid character before it, and one of the valid characters after it must be a . that is not adjacent to the @ sign.
+71.5 Add the first valid email address to a list called nonDupe.
+72 Search the next line for valid email addresses. 
+72.5 If the next valid email address does not already exist in the nonDupe list, add it to the nonDupe list.
+80 if there are more lines in the file, go down one line and return to instruction 72.
+81 Sort nonDupe list into alphabetical order.
+82 Output all the contents of the sorted nonDupe list in the line onto one line on the console, separated by a semicolon. 
+85 Enter output filename [default: copyPasteMyEmails.txt]:
+90 input of oFileName
+110 if length of oFileName = 0, or fileValid returns false, then oFileName = dFileName
+115 output what the program did, then output instructions on how to use the output file. Output error message if no emails found.
+120 output label for the input file name, and iFileName
+130 output label for the output file name, and oFileName
+140 output a prompt to press ENTER key to continue
+150 input a character
+END
+substr.(s,e-s); gets the first position and the length of the line
+
+4. Test Cases
+0.txt: What is being Tested: no valid email addresses in file  Expected result: blank output, except for 0 email addresses in file prompt
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 0.txt
+50 false
+55 file is valid
+60 dFileName = 0.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+71.5 No valid email found
+72 line contains no valid email addresses
+80 return to 72, check for valid emails for remaining lines (no valid emails)
+81 Nothing in list to sort.
+82 [blank]
+85 Enter output filename [default: 0.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 0 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+    There were no valid email addresses in 0.txt.  Please check that the file name is correct, ends in .txt, and it contains email addresses.
+120 "input file: 0.txt"
+130 "output file: 0.txt"
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+1.txt: What is being Tested: Lines that contain valid email addresses mixed in with other data  Expected result: Only output valid email addresses
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 1.txt
+50 false
+55 file is valid
+60 dFileName = 1.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+71.5 no email found on line 1
+72 line contains no valid email addresses
+80 72-80 loop repeats until the first valid email address on line 22.
+81 Sorted nonDupe list into alphabetical order.
+72 Line contains a valid email address as defined in instructions above. output the 1 email address found on this line.
+80 72-80 loop continues for 40 repetitions, 
+85 Enter output filename [default: 0.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 40 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 1.txt"
+130 "output file: 1.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+2.txt: What is being Tested: emails in html(?) code, duplicate emails  Expected result: 80 emails, 2 per line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 2.txt
+50 false
+55 file is valid
+60 dFileName = 2.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop continues until line 93, where it finds 2 valid email addresses.
+80 72-80 loop continues and finds 2 email addresses every 8 lines after line 93, nEmailTotal = 80.
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 2.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 40 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 2.txt"
+130 "output file: 2.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+3.txt: What is being Tested: Finding multiple emails on one line  Expected result: 7 email addresses, output on one line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 3.txt
+50 false
+55 file is valid
+60 dFileName = 3.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 7 email addresses on line 1, and no more lines. nEmailLine = 7 and nEmailTotal = 7
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 3.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 7 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 3.txt"
+130 "output file: 3.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+4.txt: What is being Tested: Finding multiple emails on one line  Expected result: 40 email addresses, output on one line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 4.txt
+50 false
+55 file is valid
+60 dFileName = 4.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 40 email addresses on line 1, and no more lines. nEmailLine = 40 and nEmailTotal = 40
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 4.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 40 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 4.txt"
+130 "output file: 4.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+5.txt: What is being Tested: Finding multiple emails on one line  Expected result: 40 email addresses, output on one line
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 5.txt
+50 false
+55 file is valid
+60 dFileName = 5.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 40 email addresses on line 1, and no more lines. nEmailLine = 40 and nEmailTotal = 40
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 5.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 40 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 5.txt"
+130 "output file: 5.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+6.txt: What is being Tested: One Email per line, removing ;, and readding them in program  Expected result: nEmailLine = 1, and nEmailTotal = 40.
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 6.txt
+50 false
+55 file is valid
+60 dFileName = 6.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 1 email address per line, for 4 lines. For each line, nEmailLine = 1, and nEmailTotal = 40.
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 6.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 40 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 6.txt"
+130 "output file: 6.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+7.txt: What is being Tested: 12 email addresses on 13 lines  Expected result: nEmailLine = 1 for all except line 7, nEmailTotal = 12
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 7.txt
+50 false
+55 file is valid
+60 dFileName = 7.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 1 email address per line, for 6 lines. For each line, nEmailLine = 1, and nEmailTotal = 6.
+72 72-80 loop found 0 email addresses on line 7. nEmailLine = 0, nEmailTotal = 6.
+72 72-80 loop found 1 email address per line, for 6 lines. For each line, nEmailLine = 1, and nEmailTotal = 12.
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 7.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 12 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 7.txt"
+130 "output file: 7.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+8.txt: What is being Tested: 4 email addresses on one line  Expected result: nEmailLine = 4, and nEmailTotal = 4.
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 8.txt
+50 false
+55 file is valid
+60 dFileName = 8.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 4 email address per line, for 1 lines. For each line, nEmailLine = 4, and nEmailTotal = 4.
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 8.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 4 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: 8.txt"
+130 "output file: 8.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+9.txt: What is being Tested: no email addresses on 1 line.  Expected result: nEmailLine = 0, and nEmailTotal = 0.
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = 9.txt
+50 false
+55 file is valid
+60 dFileName = 9.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 0 email addresses on line 7. nEmailLine = 0, nEmailTotal = 0.
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: 9.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 0 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+    There were no valid email addresses in 0.txt.  Please check that the file name is correct, ends in .txt, and it contains email addresses.
+120 "input file: 9.txt"
+130 "output file: 9.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+
+
+math1.txt: What is being Tested: Search through directory and output only valid email addresses  Expected result: nEmailLine = 1 for 40 lines, nEmailTotal = 40
+10 set dFileName = fileContainingEmails.txt
+30 Enter input filename [default: fileContainingEmails.txt]:
+40 iFileName = math1.txt
+50 false
+55 file is valid
+60 dFileName = math1.txt
+70 file exists in working folder
+71 searching input file for valid email addresses, starting at line 1
+72 72-80 loop found 1 email address on line 22. nEmailLine = 1, nEmailTotal = 1.
+72 72-80 loop found 1 email address per line on lines 23-61. nEmailLine = 1, nEmailTotal = 40.
+81 Sorted nonDupe list into alphabetical order.
+85 Enter output filename [default: math1.txt]:
+90 [enter]
+110 true, oFileName = dFileName
+115 40 emails were found in fileContainingEmails.txt and written to copyPasteMyEmails.txt. They have been sorted alphabetically, and duplicate email addresses were removed. 
+120 "input file: math1.txt"
+130 "output file: math1.txt'
+140 "press ENTER key to continue..."
+150 [enter]
+

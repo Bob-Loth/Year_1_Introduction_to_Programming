@@ -1,0 +1,88 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: encode a user-given text file and save the encoded text as secrets.txt
+
+2. Requirements
+INPUT: file named secrets.txt
+
+PROCESSING:
+set input and output file stream commands
+get user input for a text file to encode
+open the file, check for errors and close safely if they occur
+open a file called secrets.txt
+get a line from file
+save the line as a string variable
+for all the characters in the string, add 1 to each character's UNICODE value, changing the characters in the string
+output the new, encoded string to the console
+output the new, encoded string to secrets.txt
+repeat, getting the next line and performing the encoding, then output the next line to the console
+when all lines are encoded, close secrets.txt
+when all lines are encoded, close the original file
+
+
+
+OUTPUT: encoded text to the console
+        encoded text to a file called secrets.txt
+
+DATA:
+
+
+3. Instructions
+5 create an a list containing the integers -5, 8, 12, 6, and 1
+6 create a variable called i that starts at 0 and counts up by 1
+7 create a variable called index that is the remainder of i divided by the size of the list (5 i this case).
+10 get user input for a text file to encode
+15 check for errors and close program if there are errors
+16 open the input file
+17 open a file called secrets.txt
+20 input the first/next line from the input file. if there are no more lines, then skip to instruction 30
+22 save line as a string
+24 for each character in the string, add the position in the list described by index to its UNICODE value, then save it over the character in the string. When a character is decoded, increase i by 1.
+26 output the encoded line/string to the console
+27 output the encoded line/string to secrets.txt
+28 when there are no more characters in the line/string, return to instruction 20
+30 close input file
+31 close secrets.txt
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: Wide variety of characters    and  Input values if any:
+Original Text    Encoded Text
+asdf qwer        \{fl!l[DEL]qx
+
+1234             ,:?:
+
+5 array {-5, 8, 12, 6, and 1}
+6 i=0
+7 index = i % 5
+10 original.txt
+15 original.txt exists and is the correct file type, no errors
+16 original.txt is now open
+17 secrets.txt is now open
+20 input from original.txt: asdf qwer
+22 string = asdf qwer
+24 a + -5 = \, s + 8 = {, d + 12 = p, f + 6 = l, ' ' + 1 = !, q + -5 = l, w + 8 = [DEL], e + 12 = q, r + 6 = x
+26 console: \{fl!l[DEL]qx
+27 secrets.txt: \{fl!l[DEL]qx
+28 return to instruction 20
+20 input from original.txt: no characters on line
+22 string = ""
+24 no characters in string
+26 console: ""
+27 secrets.txt: ""
+28 return to instruction 20
+20 input from original.txt: 1234
+22 string = 1234
+24 1 + -5 = ,, 2 + 8 = :, 3 + 12 = ?, 4 + 6 = :.
+26 console: ,:?:
+27 secrets.txt: 2345
+28 return to instruction 20
+20 skip to instruction 30
+30 original.txt is now closed
+31 secrets.txt is now closed
+END
+31
+END
