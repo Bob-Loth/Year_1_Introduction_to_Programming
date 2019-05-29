@@ -1,0 +1,24 @@
+Robert Loth
+COMSC-110-1021
+
+
+1. Objective: modify mort3.cpp by replacing its separate variables with a single object with data fields that replace the variables.
+
+2. Requirements:
+--INPUT
+
+
+--PROCESSING
+
+
+--OUTPUT
+
+--Data
+
+
+3. Algorithm instructions
+
+
+4. Test Cases
+Test Case #1: input values =  Expected results = 
+

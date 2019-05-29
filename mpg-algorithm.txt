@@ -1,0 +1,73 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: get keyboard input from the user to calculate the miles/gallon. 
+Depending on the capacity in gallons of the fuel tank calculate the range possible with the remaining fuel.
+
+2. Requirements
+INPUT:
+Miles of the trip
+total capacity of the fuel tank
+the amount of fuel in gallons in the fuel tank, after the trip
+
+PROCESSING:
+get keyboard input for miles, capacity, and fuel remaining, store as miles, capacity, and gallons respectively
+divide miles by (capacity minus gallons), store result as mpg
+multiply mpg by gallons, store as range
+output mpg and range with appropriate labels
+
+OUTPUT:
+Miles per gallon
+Range possible with the remaining fuel
+
+DATA:
+miles // distance in miles of the trip
+range // the maximum range of the car with the fuel remaining in the tank
+capacity // total capacity of the fuel tank
+gallons // the amount of fuel, in gallons, in the fuel tank, after the trip
+ mpg // miles per gallon that the vehicle got during the trip
+  
+
+3. Instructions
+10 ask for trip distance in miles, store as miles
+15 validate input: miles must be >0, if not display error message and return to 10
+20 ask for gallons currently in tank, store as gallons
+25 validate input: gallons must be >0, if not display error message and return to 20
+30 ask for total capacity of the fuel tank, store as capacity
+35 validate input, capacity must be more than gallons and >0, if not display error message and return to 30
+40 divide miles by (capacity minus gallons), store as mpg
+50 multiply mpg by gallons, store as range
+60 output mpg and range with appropriate labels
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: regular test case using valid input   and  Input values if any: miles = 60 capacity = 10 gallons = 7 Expected returns: mpg = 20 Range = 140
+10 miles = 20
+15 true
+20 gallons = 7
+25 true
+30 capacity = 10
+35 true, true
+40 mpg = 60 / (10-7) = 60/3 = 20
+50 range = 7 * 20 = 140
+60 "You got 20.00 miles per gallon during that trip." "With your current fuel reserve, you can travel an additional 140.00 miles before needing to refuel."
+
+4. Test Cases
+Test Case#1: What is being tested: invalid numbers, checking return points   and  Input values if any: miles = 0, 1(second time) capacity = 4 gallons = 5, 2(second time) Expected returns: error message at 15, error message at 35, then mpg= range=.
+10 miles = 0
+15 false "Miles travelled must be greater than 0"
+10 miles = 1
+15 true
+20 capacity = 4
+25 true
+30 gallons = 5
+35 false, true "Gallons remaining in the tank must be less than the capacity of the tank."
+30 gallons = 2
+35 true, true
+40 mpg = 1 / (4-2) = 1/2
+50 range = 2 * 1/2 = 1
+60 "You got 0.50 miles per gallon during that trip." "With your current fuel reserve, you can travel an additional 1.00 miles before needing to refuel."
+
+

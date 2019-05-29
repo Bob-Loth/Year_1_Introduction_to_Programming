@@ -1,0 +1,66 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Rewrite listFile.cpp to match instructions from Exercise 14
+
+2. Requirements
+INPUT: 
+
+PROCESSING:
+read and save scores
+read a score from the file
+add a new score to list, if list is not full
+find the average
+count number of scores greater than average
+
+OUTPUT: 
+
+DATA:
+
+
+3. Instructions
+10 create a data type to hold scores, as well as a link to other nodes
+20 open scores.txt
+30 validate the file
+35 validate each line before adding it to a node. It must be between 0 and 100.
+37 Numbers that are less than 0 or greater than 100 will add 1 to a counter called invl.
+40 add each line into a node in a linked list, adding it to the front of the list
+50 when the end of file marker is found, stop adding lines.
+55 output invl, and tell the user what values for scores.txt are valid. (0-100)
+60 start at the start marker, found at the last-added, first ordered node.
+70 add the score saved in the node it to a variable called sum.
+75 add 1 to a variable called count. count should be at 1.
+80 continue to the previous added, next ordered node.
+90 add the score saved in that node to sum.
+95 add 1 to count.
+100 If there are more nodes, go back to instruction 80
+105 output count with appropriate label
+110 divide sum by count and save the result as average
+115 output average with appropriate label
+120 start at the start marker, found at the last-added, first ordered node.
+130 for each score in the list that is greater than average, add one to a variable called nGreater.
+140 output nGreater with appropriate label
+150 make a variable called highest and set it to 0.
+160 for each score in the list that is greater than the variable highest, save its value as highest.
+170 highest should now be the highest number in the list. Output with appropriate label.
+180 make a variable called lowest and set it to 100.
+190 for each score in the list that is less than the variable lowest, save its value as lowest.
+200 lowest should now be the highest number in the list. Output with appropriate label.
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: Numbers within range, that have blank entries in some lines and invalid entries in others Input values if any: 99,-9, 95, 9999, 88, BLANK, 86, 89, 92, 90, 94
+Expected output: average = 91.625
+                 count = 8
+                 nGreater = 4
+                 lowest = 86
+                 highest = 99
+
+
+
+
+
+
+

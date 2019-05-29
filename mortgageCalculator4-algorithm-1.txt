@@ -1,0 +1,79 @@
+Robert Loth
+COMSC-110-1021
+
+
+1. Objective: modify mort3.cpp by replacing its separate variables with a single object with data fields that replace the variables.
+
+2. Requirements:
+--INPUT
+amount borrowed ; user input in dollars
+interest rate ; user input of decimal monthly interest rate
+payback period ; programmer's input in years
+
+--PROCESSING
+ask for password
+lock/unlock program
+get input data
+perform mortgage calculation
+
+--OUTPUT
+monthly payment, amount paid monthly to pay off mortgage in dollars
+
+--Data
+amount borrowed
+interest rate
+payback period
+monthly payment
+3. Algorithm instructions
+10 create a structure with fields for interestRate, monthlyPayment, amountBorrowed, and years
+20 set a password
+30 ask user to enter the password
+40 if the user correctly enters the password then go to step 70
+50 if the user incorrectly enters the password, then go to step 30 a maximum of 5 times
+60 if the the user incorrectly enters password more than 5 times, close program
+70 ask for total amount in dollars that was borrowed, save as amountBorrowed in structure
+80 ask for the annual decimal interest rate, divide it by 12 and save as interestRate in structure
+90 calculate using amortization formula found on exercise 5.1
+100 output amountBorrowed, formatted interest rate, and the monthly repayment amount
+END
+
+4. Test Cases
+Test Case #1: input values = amountBorrowed=270000 interestRate = .05125 Expected results = monthlyPayment = 1411
+10 struct { interestRate, monthlyPayment, amountBorrowed,years}
+20 password = 1684749
+30 "enter password"
+40 userPassword = password true
+70 "what is the total amount in dollars borrowed?" amountBorrowed=270000
+80 "what is the annual decimal interest rate?" interestRate = .05125 / 12 = .004270833
+90 calculation yields 1470.11 = monthlyPayment
+100 Borrowing 270000, at 5.125% annual interest, requires a monthly payment of $1470.11
+END
+
+Test Case #1: input values = invalid password expected results: close program
+10 struct { interestRate, monthlyPayment, amountBorrowed,years}
+20 password = 1684749
+30 "enter password"
+40 userPassword = password false
+50 true, go to step 30 count 1
+60 false
+30 "enter password"
+40 userPassword = password false
+50 true, go to step 30 count 2
+60 false
+30 "enter password"
+40 userPassword = password false
+50 true, go to step 30 count 3
+60 false
+30 "enter password"
+40 userPassword = password false
+50 true, go to step 30 count 4
+60 false
+30 "enter password"
+40 userPassword = password false
+50 true, go to step 30 count 5
+60 false
+30 "enter password"
+40 userPassword = password false
+50 true, go to step 30 count 6
+60 true, close program
+END

@@ -1,0 +1,71 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective : to receive 4 inputs about a person through keyboard input, and output sentences about those inputs in a sentence using labels.
+
+2. Requirements
+INPUT: 
+height of lighthouse in feet, double: height
+
+
+PROCESSING:
+prompt user to input height of lighthouse in feet
+take keyboard input
+store as height
+perform calculation on height
+store result as the distance in miles a boat can see a lighthouse
+output result in readable format 
+
+
+OUTPUT:
+distance in miles from which a boat can see a lighthouse 
+
+DATA:
+height
+distance
+
+
+3. Instructions
+5 declare height
+7 declare distance
+10 output user introduction
+20 prompt to input the height of decimal feet
+30 store input as height
+40 perform calculation on height ( multiply by 0.8, then take sqrt of result), store result as distance
+50 output result, accompanied by descriptive label and units.
+999 DONE
+
+
+4. Test Cases
+Test Case#1: What is being tested: integer input   and  Input values if any: height = 125 (feet) Expected result: distance = 10 miles
+5 height = 
+7 distance = 
+10 This program will calculate the distance, in miles, from which a boat can see a lighthouse, based on the lighthouses height, in feet.
+20 Please enter the lighthouse's height, in decimal feet: 
+30 height = [125]
+40 distance = sqrt( 0.8 * 125 )
+50 A lighthouse that is [125] feet tall will provide light to boats that are up to [10] miles away.
+999 DONE
+
+Test Case#1: What is being tested: decimal input   and  Input values if any: height = 125.000001 (feet) Expected result: distance = 10 miles
+
+5 height = 
+7 distance = 
+10 This program will calculate the distance, in miles, from which a boat can see a lighthouse, based on the lighthouses height, in feet.
+20 Please enter the lighthouse's height, in decimal feet: 
+30 height = [125.0]
+40 distance = sqrt( 0.8 * 125.000001 )
+50 A lighthouse that is [125.000] feet tall will provide light to boats that are up to [10] miles away.
+999 DONE
+
+Test Case#2 : What is being tested: in class test case and  Input values if any: height = 100.001 (feet) Expected result: distance = 9 miles
+
+5 height = 
+7 distance = 
+10 This program will calculate the distance, in miles, from which a boat can see a lighthouse, based on the lighthouses height, in feet.
+20 Please enter the lighthouse's height, in decimal feet: 
+30 height = [100.001]
+40 distance = sqrt( 0.8 * 100.001 )
+50 A lighthouse that is [100.001] feet tall will provide light to boats that are up to [9] miles away.
+999 DONE
+

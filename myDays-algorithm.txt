@@ -1,0 +1,85 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective
+
+2. Requirements
+INPUT:
+
+1994-2018
+1996, 2000, 2004, 2008, 2012, 2016 - 6 leap years
+
+A. the number of years in which you've lived, including your birth year and the current year - 24 years, or 8760 days : days
+B. the number of leap years in your life - 1994-2018 1996, 2000, 2004, 2008, 2012, 2016 - 6 leap years : leapDays
+C. the number of days in your birth year before you were born, including your day of birth - 363 days : daysBefore
+D. the number of days remaining in the current year after the due date for this lab, excluding that date. - 190 days : daysAfter
+
+
+
+PROCESSING: 
+
+set the value days to 0
+Add to "days" the result of this multiplication: 365 times the number of years
+in which you've lived.
+Add to "days" the number of those years that were leap years.
+Subtract from "days" the number of days in your birth year before you were
+born.
+Subtract from "days" the number of days remaining in the current year after the
+due date.
+Output the value of "days" with an appropriate label.
+
+
+OUTPUT: How many days old I will be by the due date of this assignment.
+
+
+DATA:
+
+A. the number of years in which you've lived, including your birth year and the current year - 25 years, or
+B. the number of leap years in your life - 1994-2018
+1996, 2000, 2004, 2008, 2012, 2016 - 6 leap years
+C. the number of days in your birth year before you were born, including your day of birth - 362 days
+D. the number of days remaining in the current year after the due date for this lab, excluding that date. - 190 days
+
+3. Instructions
+
+1 Assign number of years in which you have lived, including your birth year AND current year - years
+2 Assign number of leap years in your life - leapDays
+3 Assign number of days in your birth year before you were born, including your day of birth - daysBefore 
+10 Multiply years by 365, store as days1
+20 Add leapDays to days1, store as days2
+30 Subtract daysBefore from days2, store as days3
+40 Subtract 190 from days3, store as Age
+50 Output, in 3 separate lines, your date of birth, the due date, and Age, with appropriate labels.
+
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: For Test case DOB = 12/29/1994  and  Input values if any: years = 25 (1994-2018), leapDays = 6 daysBefore = 363 
+Expected results from http://www.timeanddate.com/date/duration.html : 8578 days, not including end date
+
+1 years      = 25
+2 leapDays   = 6
+3 daysBefore = 363
+10 days1 = years * 365        = 25 * 365   = 9125
+20 days2 = leapDays + days1   = 9125 + 6   = 9131
+30 days3 = days2 - daysBefore = 9131 - 363 = 8768
+40 age   = days3 - 190        = 8768 - 190 = 8578
+50 DOB: 12/29/1994
+   Due: 6/24/2018
+   age: 8578 days
+
+Test case#2: What is being tested: For test case 4/1/1992 and Input values if any: years = 27 (1992-2018), leapDays = 7 daysBefore = 92
+Expected results from http://www.timeanddate.com/date/duration.html : 9580 days, not including end date
+
+1 years      = 27
+2 leapDays   = 7
+3 daysBefore = 92
+10 days1 = years * 365        = 27 * 365   = 9855
+20 days2 = leapDays + days1   = 9855 + 7   = 9862
+30 days3 = days2 - daysBefore = 9862 - 92  = 9770
+40 age   = days3 - daysAfter  = 9770 - 190 = 9580
+50 DOB: 12/29/1994
+   Due: 4/1/2018
+   age: 9580 days
+

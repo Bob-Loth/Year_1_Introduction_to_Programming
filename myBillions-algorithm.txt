@@ -1,0 +1,51 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: Simulate the piggy bank problem, and 
+calculate how long it will take to save 1 billion dollars total
+
+2. Requirements
+INPUT:
+initialAmount - programmer's input at 0.05
+
+PROCESSING:
+
+
+add initialAmount * 2^(n-1) to amountSaved, where n is the number of weeks 
+if amountSaved is less than 1000, assign n to thousandaire
+if amountSaved is more than 1,000,000, assign n to millionaire
+if amountSaved is more than 1,000,000,000, assign n to billionaire, then go to instruction 100
+if amountSaved is less than 1,000,000,000, go back to 10.
+display the following:
+    In {thousandaire} weeks, I will be a thousandaire!
+    In {millionaire} weeks, I will be a millionaire!
+    In {billionaire} weeks, I will be a billionaire!
+
+
+OUTPUT:
+thousandaire // time in weeks it would take to save $1000 using this method
+millionaire //  time in weeks it would take to save $1,000,000 using this method
+billionaire //  time in weeks it would take to save $1,000,000,000 using this method
+DATA:
+
+
+3. Instructions 
+1 create a value called amountSaved, set to 0.00
+2 create a value called initialAmount, set to 0.05
+3 create a value called weeks, set to 1
+4 create a value called thousandaire
+5 create a value called millionaire
+6 create a value called billionaire 
+10 add initialAmount * 2^(n-1) to amountSaved, where n is the number of weeks 
+20 if amountSaved is less than 1000, assign n to thousandaire
+30 if amountSaved is more than 1,000,000, assign n to millionaire
+40 if amountSaved is more than 1,000,000,000, assign n to billionaire, then go to instruction 100
+50 if amountSaved is less than 1,000,000,000, go back to 10.
+100 display the following:
+    In {thousandaire} weeks, I will be a thousandaire!
+    In {millionaire} weeks, I will be a millionaire!
+    In {billionaire} weeks, I will be a billionaire!
+999 DONE
+
+4. Test Cases
+Test Case#1: What is being tested: thousandaire     and  Input values if any: 

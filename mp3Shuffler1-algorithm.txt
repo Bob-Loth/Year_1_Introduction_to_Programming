@@ -1,0 +1,44 @@
+Name: Robert Loth
+Course: COMSC-110-1021
+
+1. Objective: read all song titles from a text file,
+and randomly select and output titles in a loop until the user wishes to stop.
+
+2. Requirements
+INPUT: 
+file named songs.txt, one song name per line.
+
+PROCESSING:
+open songs.txt
+Read all songs from text file
+stop reading file after end-of-file is reached, or the 200th song title is added and the list reaches capacity.
+prompt user to play a song.
+If the reply is N or n, exit the loop and let the program end.
+If the reply is Y or y, randomly choose a number for the index of the song title in the list to play.
+Print the song title, and repeat to the top of the loop.
+
+
+
+OUTPUT: 
+
+DATA:
+
+
+3. Instructions
+1 user introduction
+2 open songs.txt
+3 save each line as a text data type into a list
+4 stop saving lines at the end of file, or after 200 songs have been added to the list
+30 in a loop, prompt the user to “play a song [Y/N]?”.
+40 If the reply is N or n, exit the loop and let the program end.
+50 If the reply is Y or y, randomly choose a number for the index of the song title in the list to play.
+60 Print the song title, and repeat to the top of the loop.
+
+
+
+4. Test Cases
+Test Case#1: What is being tested: more than 200 songs  and  Expected results: only the first 200 songs are added to list
+
+Test Case#2: What is being tested: possibility of duplicate plays  and  Input values if any: 
+
+Test Case#3: What is being tested:   and  Input values if any: 
